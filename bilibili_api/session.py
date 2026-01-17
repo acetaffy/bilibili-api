@@ -50,10 +50,14 @@ async def fetch_session_msgs(
         "talker_id": talker_id,
         "session_type": session_type,
         "begin_seqno": begin_seqno,
+        "size": 50,
+        "sender_device_id": 1,
+        "build": 0,
+        "mobi_app": "web",
     }
     api = API["session"]["fetch"]
 
-    return await Api(**api, credential=credential).update_params(**params).result
+    return await Api(**api, credential=credential, wbi=True).update_params(**params).result
 
 
 async def new_sessions(
@@ -512,7 +516,7 @@ class Session(AsyncEvent):
         @self.sched.scheduled_job(
             "interval",
             id="query",
-            seconds=6,
+            seconds=10,
             max_instances=3,
             next_run_time=datetime.datetime.now(),
         )
