@@ -11,9 +11,10 @@
       "comment": "视频数据"
     },
     "info": {
-      "url": "https://api.bilibili.com/x/web-interface/view",
+      "url": "https://api.bilibili.com/x/web-interface/wbi/view",
       "method": "GET",
       "verify": false,
+      "wbi": true,
       "params": {
         "aid": "int: av 号",
         "bvid": "string: BV 号"
@@ -24,6 +25,7 @@
       "url": "https://api.bilibili.com/x/web-interface/wbi/view/detail",
       "method": "GET",
       "verify": false,
+      "wbi": true,
       "params": {
         "aid": "int: av 号",
         "bvid": "string: BV 号",
